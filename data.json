@@ -7,6 +7,8 @@
             "apellido2": "n/a",
             "direccion": "n/a",
             "acudiente": "n/a", 
-            "telefono":"n/a" }
+            "telefono":"n/a",
+            "estado": "n/a",
+            "riesgo": "n/a" }
           ]
     }
