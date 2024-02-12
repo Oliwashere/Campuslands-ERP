@@ -24,7 +24,7 @@ if rol ==1:
     print("--                            --")
     print("--------------------------------")
     print("")
-    print("¿Que moduo deseas importar?")
+    print("¿Que modulo deseas importar?")
     print("") 
     print("1 CAMPERS\t 2 Trainers")
 if rol ==2:
