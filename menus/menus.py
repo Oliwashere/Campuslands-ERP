@@ -39,7 +39,6 @@ def menu_reg_camp(archivo,):
         return
 
     nuevo_dato = {
-        "id": id_camper(datos),
         "nombre1": input("Ingresa el primer nombre: "),
         "nombre2": input("Ingresa el segundo nombre: "),
         "apellido1": input("Ingresa el primer apellido: "),
