@@ -1,1 +1,15 @@
-[]
+[
+  {
+    "camper #": "1",
+    "nombre1": "o",
+    "nombre2": "o",
+    "apellido1": "o",
+    "apellido2": "o",
+    "direccion": "oo",
+    "acudiente": "o",
+    "celular": "o",
+    "fijo": "o",
+    "estado": "o",
+    "riesgo": "o"
+  }
+]

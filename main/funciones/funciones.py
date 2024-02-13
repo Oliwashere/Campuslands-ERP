@@ -132,3 +132,33 @@ def editar_lista(archivo):
             print("Número de lista inválido.")
     except ValueError:
         print("Entrada inválida. Ingresa un número.")
+        
+def registrar_notas(datos):
+    try:
+        numero_lista = int(input("Ingresa el número de la lista que deseas actualizar: "))
+        if 1 <= numero_lista <= len(datos):
+            lista_a_actualizar = datos[numero_lista - 1]
+            
+            # Mostrar información actual de la lista
+            print(f"\nActualizando Estado de Lista {lista_a_actualizar['camper #']}:")
+
+            # Obtener notas teóricas y prácticas del usuario
+            nota_teorica = float(input("Ingresa la nota teórica: "))
+            nota_practica = float(input("Ingresa la nota práctica: "))
+            
+            # Calcular el promedio
+            promedio = (nota_teorica + nota_practica) / 2
+
+            # Actualizar el estado
+            if promedio > 60:
+                lista_a_actualizar['estado'] = 'aprobado'
+            else:
+                lista_a_actualizar['estado'] = 'reprobado'
+
+            # Guardar cambios en el archivo
+            guardar_camper(archivo_json, datos)
+            print(f"\nEstado de Lista {lista_a_actualizar['camper #']} actualizado exitosamente.")
+        else:
+            print("Número de lista inválido.")
+    except ValueError:
+        print("Entrada inválida. Ingresa un número y notas válidas.")

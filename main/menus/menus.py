@@ -19,14 +19,15 @@ def menu_cord():
     print("2. Ver campers")
     print("3. Editar campers")
     print("4. Eliminar campers")
-    print("5. Asignar rutas")
-    print("6. Crear rutas")
-    print("7. Registrar trainer")
-    print("8. Ver trainers")
-    print("9. Reportes")
-    print("10. Salir")
+    print("5. Registrar notas")
+    print("6. Asignar rutas")
+    print("7. Crear rutas")
+    print("8. Registrar trainer")
+    print("9. Ver trainers")
+    print("10. Reportes")
+    print("11. Salir")
     print("")
-    opcC=verif_opcC("----> ",1,10)
+    opcC=verif_opcC("----> ",1,11)
     return opcC
 
 def menu_mostrar_camp(archivo):
@@ -44,6 +45,9 @@ def menu_editar_camp(archivo):
     clear_screen()
     editar_lista(archivo)
 
+def menu_reg_notas(archivo):
+    clear_screen()
+    registrar_notas(archivo)
 
 def menu_reg_camp(archivo,):
 
