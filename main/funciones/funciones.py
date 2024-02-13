@@ -1,6 +1,7 @@
 import os
 import json
 
+
 def clear_screen():
     os.system("cls"if os.name == "nt" else "clear")
 
@@ -14,6 +15,17 @@ def verif_opc(enunciado,bajo,top):
                 print(f"La opcion no se encuetra entre las opciones ({bajo}-{top})")
         except ValueError:
             print("Por favor, ingrese una opción válida")
+            
+def verif_opcSalir(enunciado,bajo,top):
+    while True:
+        try: 
+            opcion=int(input(enunciado))
+            if opcion >=bajo and opcion<=top:
+                return opcion
+            else:
+                print(f"La opcion no se encuetra entre las opciones ({bajo}-{top})")
+        except ValueError:
+            print("Por favor, ingrese una opción válida")            
 
 def verif_opcC(enunciado,bajo,top):
     while True:
@@ -50,3 +62,73 @@ def id_camper(datos):
 
 def id_camper_name(datos):
     return str(len(datos) + 1)
+
+def mostrar_camp(archivo):
+    datos = cargar_camper(archivo)
+
+    if not datos:
+        print("No hay campers registrados.")
+        return
+
+    print("Campers registrados:")
+    print("")
+    for lista in datos:
+        print(f"Camper {lista['camper #']}:")
+        for clave, valor in lista.items():
+            if clave != 'id' and clave != 'camper #':
+                print(f"  {clave}: {valor}")
+        print()
+
+def eliminar_camper(archivo):
+    datos = cargar_camper(archivo)
+
+    if not datos:
+        print("No hay campers registrados para eliminar.")
+        return
+
+    mostrar_camp(archivo)
+
+    try:
+        numero_lista = int(input("Ingresa el número del camper que deseas eliminar: "))
+        if 1 <= numero_lista <= len(datos):
+            lista_eliminada = datos.pop(numero_lista - 1)
+            print(f"Camper {lista_eliminada['camper #']} eliminado exitosamente.")
+            guardar_camper(archivo, datos)
+        else:
+            print("Número de camper inválido.")
+    except ValueError:
+        print("Entrada inválida. Ingresa un número.")
+
+def editar_lista(archivo):
+    datos = cargar_camper(archivo)
+
+    if not datos:
+        print("No hay listas creadas para editar.")
+        return
+
+    mostrar_camp(archivo)
+
+    try:
+        numero_lista = int(input("Ingresa el número de la lista que deseas editar: "))
+        if 1 <= numero_lista <= len(datos):
+            lista_a_editar = datos[numero_lista - 1]
+
+            # Mostrar información actual de la lista
+            print(f"\nEditando Lista {lista_a_editar['camper #']}:")
+            for clave, valor in lista_a_editar.items():
+                if clave != 'id' and clave != 'camper #':
+                    print(f"  {clave}: {valor}")
+
+            # Solicitar nuevas entradas
+            for clave in lista_a_editar.keys():
+                if clave != 'id' and clave != 'camper #':
+                    nuevo_valor = input(f"Ingrese nuevo valor para {clave}: ")
+                    lista_a_editar[clave] = nuevo_valor
+
+            # Guardar cambios en el archivo
+            guardar_camper(archivo, datos)
+            print(f"\nLista {lista_a_editar['camper #']} editada exitosamente.")
+        else:
+            print("Número de lista inválido.")
+    except ValueError:
+        print("Entrada inválida. Ingresa un número.")

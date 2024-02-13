@@ -29,20 +29,21 @@ def menu_cord():
     opcC=verif_opcC("----> ",1,10)
     return opcC
 
-def mostrar_camp(archivo):
-    datos = cargar_camper(archivo)
+def menu_mostrar_camp(archivo):
+    clear_screen()
+    mostrar_camp(archivo)
+    print("1. Salir")
+    opcS=verif_opcSalir("----> ",1,1)
+    return opcS
 
-    if not datos:
-        print("No hay campers registrados.")
-        return
+def menu_eliminar_camp(archivo):
+    clear_screen()
+    eliminar_camper(archivo)    
 
-    print("Campers registrados:")
-    for lista in datos:
-        print(f"Lista {lista['camper #']}:")
-        for clave, valor in lista.items():
-            if clave != 'id' and clave != 'camper #':
-                print(f"  {clave}: {valor}")
-        print()
+def menu_editar_camp(archivo):
+    clear_screen()
+    editar_lista(archivo)
+
 
 def menu_reg_camp(archivo,):
 
