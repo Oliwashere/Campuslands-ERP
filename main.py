@@ -1,6 +1,5 @@
 from funciones.funciones import *
 from menus.menus import *
-import json
 
 while True:
     clear_screen()
@@ -9,9 +8,7 @@ while True:
     if opc==1:
         menu_cord()
         if opc==1:
-            menu_reg_camp()
-        if opc==2:
-                
+            menu_reg_camp("campers.json")
     if opc==2:
         menu_train()
     if opc==3:

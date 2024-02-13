@@ -29,20 +29,32 @@ def menu_cord():
     opc=verif_opc("----> ",1,10)
     return opc
 
-def menu_reg_camp():
+def menu_reg_camp(archivo,):
+
     clear_screen()
-    nombre1=input("Ingresa el primer nombre: ")
-    nombre2=input("Ingresa el segundo nombre: ")
-    apellido1=input("Ingresa el primer apellido: ")
-    apellido2=input("Ingresa el segundo apellido: ")
-    direccion=input("Ingresa la dirección: ")
-    acudiente=input("Ingresa el nombre del acudiente: ")
-    celular=input("Ingresa el número de celular: ")
-    fijo=input("Ingresa el número fijo: ")
-    estado=input("Ingresa el estado del camper: ")
-    riesgo=input("Ingresa el nivel de riesgo: ")
-    print("")
-    return nombre1,nombre2,apellido1,apellido2,direccion,acudiente,celular,fijo,estado,riesgo
+    datos = cargar_camper(archivo)
+
+    if len(datos) >= MAX_LISTAS:
+        print("Se alcanzó el número máximo de campers (33). No se pueden agregar más.")
+        return
+
+    nuevo_dato = {
+        "id": id_camper(datos),
+        "nombre1": input("Ingresa el primer nombre: "),
+        "nombre2": input("Ingresa el segundo nombre: "),
+        "apellido1": input("Ingresa el primer apellido: "),
+        "apellido2": input("Ingresa el segundo apellido: "),
+        "direccion": input("Ingresa la dirección: "),
+        "acudiente": input("Ingresa el nombre del acudiente: "),
+        "celular": input("Ingresa el número de celular: "),
+        "fijo": input("Ingresa el número fijo: "),
+        "estado": input("Ingresa el estado del camper: "),
+        "riesgo": input("Ingresa el nivel de riesgo: ")
+    }
+
+    datos.append(nuevo_dato)
+    guardar_camper(archivo, datos)
+    return archivo, datos
 
 def menu_train():
     print("Bienvenido Trainer")
