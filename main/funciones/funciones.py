@@ -15,6 +15,17 @@ def verif_opc(enunciado,bajo,top):
         except ValueError:
             print("Por favor, ingrese una opción válida")
 
+def verif_opcC(enunciado,bajo,top):
+    while True:
+        try: 
+            opcion=int(input(enunciado))
+            if opcion >=bajo and opcion<=top:
+                return opcion
+            else:
+                print(f"La opcion no se encuetra entre las opciones ({bajo}-{top})")
+        except ValueError:
+            print("Por favor, ingrese una opción válida")
+
 MAX_LISTAS = 33
 
 archivo_json = "campers.json"

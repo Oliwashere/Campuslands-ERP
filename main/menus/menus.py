@@ -12,7 +12,6 @@ def menu_principal():
     opc=verif_opc("----> ",1,3)
     return opc
 
-
 def menu_cord():
     print("Bienvenido Coordinador")
     print("")
@@ -26,8 +25,24 @@ def menu_cord():
     print("8. Ver trainers")
     print("9. Reportes")
     print("10. Salir")
-    opc=verif_opc("----> ",1,10)
-    return opc
+    print("")
+    opcC=verif_opcC("----> ",1,10)
+    return opcC
+
+def mostrar_camp(archivo):
+    datos = cargar_camper(archivo)
+
+    if not datos:
+        print("No hay campers registrados.")
+        return
+
+    print("Campers registrados:")
+    for lista in datos:
+        print(f"Lista {lista['camper #']}:")
+        for clave, valor in lista.items():
+            if clave != 'id' and clave != 'camper #':
+                print(f"  {clave}: {valor}")
+        print()
 
 def menu_reg_camp(archivo,):
 
