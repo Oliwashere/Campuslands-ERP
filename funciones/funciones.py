@@ -36,3 +36,6 @@ def id_camper(datos):
     ids = [dato.get("id", 0) for dato in datos]
     nuevo_id = max(ids, default=0) + 1
     return nuevo_id    
+
+def id_camper_name(datos):
+    return str(len(datos) + 1)
