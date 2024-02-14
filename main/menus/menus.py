@@ -22,10 +22,9 @@ def menu_cord():
     print("5. Registrar notas")
     print("6. Asignar rutas")
     print("7. Crear rutas")
-    print("8. Registrar trainer")
-    print("9. Ver trainers")
-    print("10. Reportes")
-    print("11. Salir")
+    print("8. Ver trainers")
+    print("9. Reportes")
+    print("10. Salir")
     print("")
     opcC=verif_opcC("----> ",1,11)
     return opcC
@@ -75,6 +74,11 @@ def menu_reg_camp(archivo,):
     datos.append(nuevo_dato)
     guardar_camper(archivo, datos)
     return archivo, datos
+
+def menu_mostrar_trainers(archivo2):
+    clear_screen()
+    mostrar_trainer(archivo2)
+
 
 def menu_train():
     print("Bienvenido Trainer")

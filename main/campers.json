@@ -11,5 +11,18 @@
     "fijo": "o",
     "estado": "aprobado",
     "riesgo": "o"
+  },
+  {
+    "camper #": "2",
+    "nombre1": "y",
+    "nombre2": "y",
+    "apellido1": "y",
+    "apellido2": "y",
+    "direccion": "y",
+    "acudiente": "y",
+    "celular": "y",
+    "fijo": "y",
+    "estado": "y",
+    "riesgo": "y"
   }
 ]

@@ -41,6 +41,7 @@ def verif_opcC(enunciado,bajo,top):
 MAX_LISTAS = 33
 
 archivo_json = "campers.json"
+archivo2_json = "trainers.json"
 
 
 def guardar_camper(archivo, datos):
@@ -170,3 +171,30 @@ def registrar_notas(archivo):
     except ValueError:
         print("Entrada inválida. Ingresa un número.")
 
+def guardar_trainer(archivo2, datos2):
+    with open(archivo2, 'w') as archivo2_json:
+        json.dump(datos2, archivo2_json, indent=2)
+
+def cargar_trainer(archivo2):
+    try:
+        with open(archivo2, 'r') as archivo2_json:
+            datos2 = json.load(archivo2_json)
+        return datos2
+    except FileNotFoundError:
+        return [] 
+
+def mostrar_trainer(archivo2):
+    datos2 = cargar_trainer(archivo2)
+
+    if not datos2:
+        print("No hay trainers registrados.")
+        return
+
+    print("Trainers registrados:")
+    print("")
+    for lista in datos2:
+        print(f"Trainer {lista['trainer #']}:")
+        for clave, valor in lista.items():
+            if clave != 'id' and clave != 'trainer #':
+                print(f"  {clave}: {valor}")
+        print()
