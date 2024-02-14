@@ -1,10 +1,19 @@
-{
-    "1": {"nombre": "Trainer 1", "rutas_asignadas": []},
-    "2": {"nombre": "Trainer 2", "rutas_asignadas": []},
-    "3": {"nombre": "Trainer 3", "rutas_asignadas": []},
-    "4": {"nombre": "Trainer 4", "rutas_asignadas": []},
-    "5": {"nombre": "Trainer 5", "rutas_asignadas": []},
-    "6": {"nombre": "Trainer 5", "rutas_asignadas": []},
-    "7": {"nombre": "Trainer 7", "rutas_asignadas": []},
-    "8": {"nombre": "Trainer 8", "rutas_asignadas": []}
-}
+[
+ {"trainer #": "1",
+  "rutas_asignadas": []},
+ {"trainer #": "2",
+  "rutas_asignadas": []},
+ {"trainer #": "3",
+  "rutas_asignadas": []},
+ {"trainer #": "4",
+  "rutas_asignadas": []},
+ {"trainer #": "5",
+  "rutas_asignadas": []},
+ {"trainer #": "6",
+  "rutas_asignadas": []},
+ {"trainer #": "7",
+  "rutas_asignadas": []},
+ {"trainer #": "8",
+  "rutas_asignadas": []}
+
+]
