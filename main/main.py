@@ -20,7 +20,9 @@ while True:
             menu_eliminar_camp("campers.json")
         elif opcC==5:
             menu_reg_notas("campers.json")
-        elif opcC==8:
+        elif opcC==6:
+            menu_asignar_rutas("campers.json")    
+        elif opcC==7:
             menu_mostrar_trainers("trainers.json")                 
     if opc==2:
         menu_train()

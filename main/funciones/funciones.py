@@ -198,3 +198,47 @@ def mostrar_trainer(archivo2):
             if clave != 'id' and clave != 'trainer #':
                 print(f"  {clave}: {valor}")
         print()
+
+def asignar_ruta_camper(archivo):
+    datos = cargar_camper(archivo)
+
+    if not datos:
+        print("No hay listas creadas para asignar ruta.")
+        return
+
+    mostrar_camp(archivo)
+
+    try:
+        numero_lista = int(input("Ingresa el número de la lista a la que deseas asignar ruta: "))
+        if 1 <= numero_lista <= len(datos):
+            lista_seleccionada = datos[numero_lista - 1]
+
+            opciones_ruta = {
+                1: "Opción 1",
+                2: "Opción 2",
+                3: "Opción 3",
+                4: "Opción 4",
+                5: "Opción 5",
+                6: "Opción 6",
+                7: "Opción 7",
+                8: "Opción 8"
+            }
+
+            print("Opciones de ruta:")
+            for key, value in opciones_ruta.items():
+                print(f"{key}: {value}")
+
+            try:
+                opcion_elegida = int(input("Selecciona una opción de ruta (1-8): "))
+                if 1 <= opcion_elegida <= 8:
+                    lista_seleccionada["ruta"] = opciones_ruta[opcion_elegida]
+                    print(f"Ruta asignada a la lista {lista_seleccionada['camper #']}: {lista_seleccionada['ruta']}")
+                    guardar_camper(archivo, datos)
+                else:
+                    print("Opción de ruta inválida.")
+            except ValueError:
+                print("Entrada inválida. Ingresa un número.")
+        else:
+            print("Número de lista inválido.")
+    except ValueError:
+        print("Entrada inválida. Ingresa un número.")
