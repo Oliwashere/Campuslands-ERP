@@ -240,3 +240,27 @@ def asignar_ruta_camper(archivo):
         print("Entrada inválida. Ingresa un número.")
 
 
+rutas_entrenamiento = {
+    1: {"nombre": "Fundamentos de programación", "modulos": ["Introducción a la algoritmia", "PSeInt", "Python"],
+        "sgdb_principal": "SQLite", "sgdb_alternativo": "MySQL"},
+    2: {"nombre": "Programación Web", "modulos": ["HTML", "CSS", "Bootstrap"],
+        "sgdb_principal": "MySQL", "sgdb_alternativo": "PostgreSQL"},
+    3: {"nombre": "Programación formal", "modulos": ["Java", "JavaScript", "C#"],
+        "sgdb_principal": "PostgreSQL", "sgdb_alternativo": "MongoDB"},
+    4: {"nombre": "Bases de datos", "modulos": ["Mysql", "MongoDb", "Postgresql"],
+        "sgdb_principal": "MongoDB", "sgdb_alternativo": "SQLite"},
+    5: {"nombre": "Backend", "modulos": ["NetCore", "Spring Boot", "NodeJS", "Express"],
+        "sgdb_principal": "SQLite", "sgdb_alternativo": "PostgreSQL"}
+}
+
+trainers = {
+    1: {"nombre": "Trainer 1", "rutas_asignadas": []},
+    2: {"nombre": "Trainer 2", "rutas_asignadas": []},
+    3: {"nombre": "Trainer 3", "rutas_asignadas": []},
+    4: {"nombre": "Trainer 4", "rutas_asignadas": []},
+    5: {"nombre": "Trainer 5", "rutas_asignadas": []},
+    6: {"nombre": "Trainer 5", "rutas_asignadas": []},
+    7: {"nombre": "Trainer 7", "rutas_asignadas": []},
+    8: {"nombre": "Trainer 8", "rutas_asignadas": []},
+}
+
