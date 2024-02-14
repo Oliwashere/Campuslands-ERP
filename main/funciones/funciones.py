@@ -114,19 +114,16 @@ def editar_lista(archivo):
         if 1 <= numero_lista <= len(datos):
             lista_a_editar = datos[numero_lista - 1]
 
-            # Mostrar información actual de la lista
             print(f"\nEditando Lista {lista_a_editar['camper #']}:")
             for clave, valor in lista_a_editar.items():
                 if clave != 'id' and clave != 'camper #':
                     print(f"  {clave}: {valor}")
 
-            # Solicitar nuevas entradas
             for clave in lista_a_editar.keys():
                 if clave != 'id' and clave != 'camper #':
                     nuevo_valor = input(f"Ingrese nuevo valor para {clave}: ")
                     lista_a_editar[clave] = nuevo_valor
 
-            # Guardar cambios en el archivo
             guardar_camper(archivo, datos)
             print(f"\nLista {lista_a_editar['camper #']} editada exitosamente.")
         else:
@@ -209,36 +206,41 @@ def asignar_ruta_camper(archivo):
     mostrar_camp(archivo)
 
     try:
-        numero_lista = int(input("Ingresa el número de la lista a la que deseas asignar ruta: "))
+        numero_lista = int(input("Ingresa el número del camper al que deseas asignar ruta: "))
         if 1 <= numero_lista <= len(datos):
             lista_seleccionada = datos[numero_lista - 1]
 
-            opciones_ruta = {
-                1: "Opción 1",
-                2: "Opción 2",
-                3: "Opción 3",
-                4: "Opción 4",
-                5: "Opción 5",
-                6: "Opción 6",
-                7: "Opción 7",
-                8: "Opción 8"
-            }
+            if lista_seleccionada["estado"].lower() == "aprobado":
 
-            print("Opciones de ruta:")
-            for key, value in opciones_ruta.items():
-                print(f"{key}: {value}")
+                opciones_ruta = {
+                    1: "Ruta NodeJS",
+                    2: "Ruta Java",
+                    3: "Ruta NetCore",
+                    4: "Fundamentos de programación (Introducción a la algoritmia, PSeInt y Python)",
+                    5: "Programación Web (HTML, CSS y Bootstrap)",
+                    6: "Programación formal (Java, JavaScript, C#)",
+                    7: "Bases de datos (Mysql, MongoDb y Postgresql)",
+                    8: "Backend (NetCore, Spring Boot, NodeJS y Express)"
+                }
 
-            try:
-                opcion_elegida = int(input("Selecciona una opción de ruta (1-8): "))
-                if 1 <= opcion_elegida <= 8:
-                    lista_seleccionada["ruta"] = opciones_ruta[opcion_elegida]
-                    print(f"Ruta asignada a la lista {lista_seleccionada['camper #']}: {lista_seleccionada['ruta']}")
-                    guardar_camper(archivo, datos)
-                else:
-                    print("Opción de ruta inválida.")
-            except ValueError:
-                print("Entrada inválida. Ingresa un número.")
+                print("Opciones de ruta:")
+                for key, value in opciones_ruta.items():
+                    print(f"{key}: {value}")
+
+                try:
+                    opcion_elegida = int(input("Selecciona una opción de ruta (1-8): "))
+                    if 1 <= opcion_elegida <= 8:
+                        lista_seleccionada["ruta"] = opciones_ruta[opcion_elegida]
+                        print(f"Ruta asignada al camper {lista_seleccionada['camper #']}: {lista_seleccionada['ruta']}")
+                        guardar_camper(archivo, datos)
+                    else:
+                        print("Opción de ruta inválida.")
+                except ValueError:
+                    print("Entrada inválida. Ingresa un número.")
+            else:
+                print("No se puede asignar ruta a un camper con estado diferente a 'aprobado'.")
         else:
-            print("Número de lista inválido.")
+            print("Número de camper inválido.")
     except ValueError:
         print("Entrada inválida. Ingresa un número.")
+
