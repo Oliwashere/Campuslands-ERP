@@ -1,15 +1,28 @@
 [
   {
-    "camper #": "1",
-    "nombre1": "i",
-    "nombre2": "i",
-    "apellido1": "i",
-    "apellido2": "i",
-    "direccion": "i",
-    "acudiente": "i",
-    "celular": "i",
-    "fijo": "i",
-    "estado": "aprobado",
-    "riesgo": "i"
+    "camper #": "2",
+    "nombre1": "o",
+    "nombre2": "o",
+    "apellido1": "o",
+    "apellido2": "o",
+    "direccion": "o",
+    "acudiente": "o",
+    "celular": "o",
+    "fijo": "o",
+    "estado": "o",
+    "riesgo": "o"
+  },
+  {
+    "camper #": "2",
+    "nombre1": "Kenneth",
+    "nombre2": "A",
+    "apellido1": "Ceballos",
+    "apellido2": "B",
+    "direccion": "Cra 13",
+    "acudiente": "Oliver",
+    "celular": "321",
+    "fijo": "616",
+    "estado": "Penoso",
+    "riesgo": "Alto"
   }
 ]

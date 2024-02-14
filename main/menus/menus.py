@@ -38,18 +38,30 @@ def menu_mostrar_camp(archivo):
 def menu_asignar_rutas(archivo):
     clear_screen()
     asignar_ruta_camper(archivo)
+    print("1. Salir")
+    opcS=verif_opcSalir("----> ",1,1)
+    return opcS
 
 def menu_eliminar_camp(archivo):
     clear_screen()
-    eliminar_camper(archivo)    
+    eliminar_camper(archivo)
+    print("1. Salir")
+    opcS=verif_opcSalir("----> ",1,1)
+    return opcS    
 
 def menu_editar_camp(archivo):
     clear_screen()
     editar_lista(archivo)
+    print("1. Salir")
+    opcS=verif_opcSalir("----> ",1,1)
+    return opcS
 
 def menu_reg_notas(archivo):
     clear_screen()
     registrar_notas(archivo)
+    print("1. Salir")
+    opcS=verif_opcSalir("----> ",1,1)
+    return opcS
 
 def menu_reg_camp(archivo,):
 
@@ -76,11 +88,17 @@ def menu_reg_camp(archivo,):
 
     datos.append(nuevo_dato)
     guardar_camper(archivo, datos)
-    return archivo, datos
+    print("1. Salir")
+    opcS=verif_opcSalir("----> ",1,1)
+    return archivo, datos, opcS
+
 
 def menu_mostrar_trainers(archivo2):
     clear_screen()
     mostrar_trainer(archivo2)
+    print("1. Salir")
+    opcS=verif_opcSalir("----> ",1,1)
+    return opcS
 
 
 def menu_train():
