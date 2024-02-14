@@ -133,32 +133,40 @@ def editar_lista(archivo):
     except ValueError:
         print("Entrada inválida. Ingresa un número.")
         
-def registrar_notas(datos):
+def registrar_notas(archivo):
+    datos = cargar_camper(archivo)
+
+    if not datos:
+        print("No hay campers registrados para asignarle sus notas.")
+        return
+
+    mostrar_camp(archivo)
+
     try:
-        numero_lista = int(input("Ingresa el número de la lista que deseas actualizar: "))
+        numero_lista = int(input("Ingresa el número del camper al que deseas asignar sus notas. "))
         if 1 <= numero_lista <= len(datos):
             lista_a_actualizar = datos[numero_lista - 1]
-            
-            # Mostrar información actual de la lista
-            print(f"\nActualizando Estado de Lista {lista_a_actualizar['camper #']}:")
 
-            # Obtener notas teóricas y prácticas del usuario
-            nota_teorica = float(input("Ingresa la nota teórica: "))
-            nota_practica = float(input("Ingresa la nota práctica: "))
-            
-            # Calcular el promedio
-            promedio = (nota_teorica + nota_practica) / 2
+            try:
+                nota_teorica = float(input("Ingresa la nota teórica: "))
+                nota_practica = float(input("Ingresa la nota práctica: "))
 
-            # Actualizar el estado
-            if promedio > 60:
-                lista_a_actualizar['estado'] = 'aprobado'
-            else:
-                lista_a_actualizar['estado'] = 'reprobado'
+                if 0 <= nota_teorica <= 100 and 0 <= nota_practica <= 100:
+                    porcentaje_promedio = (nota_teorica + nota_practica) / 2
 
-            # Guardar cambios en el archivo
-            guardar_camper(archivo_json, datos)
-            print(f"\nEstado de Lista {lista_a_actualizar['camper #']} actualizado exitosamente.")
+                    if porcentaje_promedio > 60:
+                        lista_a_actualizar["estado"] = "aprobado"
+                    else:
+                        lista_a_actualizar["estado"] = "reprobado"
+
+                    print(f"El estado de la lista {lista_a_actualizar['camper #']} se ha actualizado a: {lista_a_actualizar['estado']}")
+                    guardar_camper(archivo, datos)
+                else:
+                    print("Las notas deben estar en el rango de 0 a 100.")
+            except ValueError:
+                print("Entrada inválida. Ingresa un número.")
         else:
-            print("Número de lista inválido.")
+            print("Número de camper inválido.")
     except ValueError:
-        print("Entrada inválida. Ingresa un número y notas válidas.")
+        print("Entrada inválida. Ingresa un número.")
+

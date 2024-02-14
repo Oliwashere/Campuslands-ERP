@@ -9,7 +9,7 @@
     "acudiente": "o",
     "celular": "o",
     "fijo": "o",
-    "estado": "o",
+    "estado": "aprobado",
     "riesgo": "o"
   }
 ]
