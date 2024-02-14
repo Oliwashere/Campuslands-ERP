@@ -30,11 +30,9 @@ while True:
             elif opcC == 5:
                 menu_reg_notas("campers.json")
                 if opcS == 1:
-                    break  
+                    break 
             elif opcC == 6:
-                menu_asignar_rutas("campers.json")
-                if opcS == 1:
-                    break      
+                menu_gestion_rutas(rutas_entrenamiento, "trainers.json")    
             elif opcC == 7:
                 menu_mostrar_trainers("trainers.json")
                 if opcS == 1:

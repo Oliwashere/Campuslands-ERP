@@ -112,3 +112,23 @@ def menu_train():
    
 def menu_salir():
     print("Bye bye /____|")   
+
+def menu_gestion_rutas(rutas, trainers):
+    while True:
+        clear_screen()
+        print("=== GESTIÓN DE RUTAS DE ENTRENAMIENTO ===")
+        print("1. Mostrar Rutas de Entrenamiento")
+        print("2. Crear Nueva Ruta")
+        print("3. Asignar Trainer a Ruta")
+        print("4. Volver al Menú Principal")
+        opcion = verif_opc("Selecciona una opción: ", 1, 4)
+
+        if opcion == 1:
+            mostrar_rutas_entrenamiento(rutas)
+            input("Presiona Enter para volver al menú.")
+        elif opcion == 2:
+            crear_nueva_ruta(rutas)
+        elif opcion == 3:
+            asignar_trainer_a_ruta(trainers, rutas)
+        elif opcion == 4:
+            break

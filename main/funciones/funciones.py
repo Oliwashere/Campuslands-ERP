@@ -302,3 +302,39 @@ def asignar_trainer_ruta(opcion_ruta, trainers):
                 print("Opción de trainer inválida o ya asignado a la ruta.")
         except ValueError:
             print("Entrada inválida. Ingresa un número.") 
+            
+def crear_nueva_ruta(rutas):
+    nueva_ruta = {
+        "nombre": input("Ingresa el nombre de la nueva ruta: "),
+        "modulos": input("Ingresa los módulos de la nueva ruta (separados por coma): ").split(","),
+        "sgdb_principal": input("Ingresa el SGDB principal de la nueva ruta: "),
+        "sgdb_alternativo": input("Ingresa el SGDB alternativo de la nueva ruta: "),
+        "campers_asignados": [],
+    }
+    rutas[len(rutas) + 1] = nueva_ruta
+    print("Nueva ruta creada exitosamente.")
+
+def asignar_trainer_a_ruta(trainers, rutas):
+    mostrar_trainers_disponibles(trainers)
+    trainer_id = verif_opc("Selecciona un Trainer para asignar a una ruta: ", 1, len(trainers))
+    mostrar_rutas_disponibles_para_trainer(trainers[trainer_id], rutas)
+    ruta_id = verif_opc("Selecciona una Ruta para asignar al Trainer: ", 1, len(rutas))
+
+    if ruta_id not in trainers[trainer_id]["rutas_asignadas"]:
+        trainers[trainer_id]["rutas_asignadas"].append(ruta_id)
+        rutas[ruta_id]["trainers_asignados"].append(trainer_id)
+        print(f"Trainer {trainers[trainer_id]['nombre']} asignado a la ruta {rutas[ruta_id]['nombre']}.")
+    else:
+        print("El Trainer ya está asignado a esa ruta.")
+
+def mostrar_trainers_disponibles(trainers):
+    print("Trainers disponibles para asignar a una ruta:")
+    for key, value in trainers.items():
+        if not value["rutas_asignadas"]:
+            print(f"{key}: {value['nombre']}")
+            
+def mostrar_rutas_disponibles_para_trainer(trainer, rutas):
+    print("Rutas disponibles para asignar al Trainer:")
+    for ruta_id, ruta in rutas.items():
+        if ruta_id not in trainer["rutas_asignadas"]:
+            print(f"{ruta_id}: {ruta['nombre']}")           
