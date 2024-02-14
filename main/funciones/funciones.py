@@ -215,12 +215,7 @@ def asignar_ruta_camper(archivo):
                 opciones_ruta = {
                     1: "Ruta NodeJS",
                     2: "Ruta Java",
-                    3: "Ruta NetCore",
-                    4: "Fundamentos de programación (Introducción a la algoritmia, PSeInt y Python)",
-                    5: "Programación Web (HTML, CSS y Bootstrap)",
-                    6: "Programación formal (Java, JavaScript, C#)",
-                    7: "Bases de datos (Mysql, MongoDb y Postgresql)",
-                    8: "Backend (NetCore, Spring Boot, NodeJS y Express)"
+                    3: "Ruta NetCore"
                 }
 
                 print("Opciones de ruta:")
@@ -228,8 +223,8 @@ def asignar_ruta_camper(archivo):
                     print(f"{key}: {value}")
 
                 try:
-                    opcion_elegida = int(input("Selecciona una opción de ruta (1-8): "))
-                    if 1 <= opcion_elegida <= 8:
+                    opcion_elegida = int(input("Selecciona una opción de ruta (1-3): "))
+                    if 1 <= opcion_elegida <= 3:
                         lista_seleccionada["ruta"] = opciones_ruta[opcion_elegida]
                         print(f"Ruta asignada al camper {lista_seleccionada['camper #']}: {lista_seleccionada['ruta']}")
                         guardar_camper(archivo, datos)
