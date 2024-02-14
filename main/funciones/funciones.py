@@ -264,3 +264,41 @@ trainers = {
     8: {"nombre": "Trainer 8", "rutas_asignadas": []},
 }
 
+def mostrar_rutas_entrenamiento(rutas):
+    print("Rutas de entrenamiento disponibles:")
+    for key, value in rutas.items():
+        print(f"{key}: {value['nombre']}")
+        
+def asignar_ruta_entrenamiento(rutas, trainers):
+    while True:
+        try:
+            opcion_ruta = int(input("Selecciona una ruta de entrenamiento (1-5): "))
+            if 1 <= opcion_ruta <= 5:
+                ruta_elegida = rutas[opcion_ruta]
+                if len(ruta_elegida["campers_asignados"]) < MAX_LISTAS:
+                    asignar_trainer_ruta(opcion_ruta, trainers)
+                    return ruta_elegida
+                else:
+                    print("La ruta está completa, elige otra.")
+            else:
+                print("Opción de ruta inválida.")
+        except ValueError:
+            print("Entrada inválida. Ingresa un número.")        
+            
+def asignar_trainer_ruta(opcion_ruta, trainers):
+    print("Trainers disponibles para asignar a la ruta:")
+    for key, value in trainers.items():
+        if opcion_ruta not in value["rutas_asignadas"]:
+            print(f"{key}: {value['nombre']}")
+
+    while True:
+        try:
+            opcion_trainer = int(input("Selecciona un trainer para asignar a la ruta: "))
+            if opcion_trainer in trainers and opcion_ruta not in trainers[opcion_trainer]["rutas_asignadas"]:
+                trainers[opcion_trainer]["rutas_asignadas"].append(opcion_ruta)
+                print(f"Trainer {trainers[opcion_trainer]['nombre']} asignado a la ruta.")
+                break
+            else:
+                print("Opción de trainer inválida o ya asignado a la ruta.")
+        except ValueError:
+            print("Entrada inválida. Ingresa un número.") 
