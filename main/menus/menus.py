@@ -82,8 +82,8 @@ def menu_reg_camp(archivo,):
         "acudiente": input("Ingresa el nombre del acudiente: "),
         "celular": input("Ingresa el número de celular: "),
         "fijo": input("Ingresa el número fijo: "),
-        "estado": input("Ingresa el estado del camper: "),
-        "riesgo": input("Ingresa el nivel de riesgo: ")
+        "estado": "inscrito",
+        "riesgo": "bajo"
     }
 
     datos.append(nuevo_dato)
