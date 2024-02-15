@@ -3,6 +3,7 @@ from menus.menus import *
 
 while True:
     clear_screen()
+    opct=0
     opcS=0
     opc = menu_principal()
     clear_screen()
@@ -39,9 +40,12 @@ while True:
                     break     
             elif opcC == 9:
                 break  
-
     elif opc == 2:
-        menu_train()
+        opct=menu_train("trainers.json")
+        if opct==1:
+            menu_mostrar_trainers("trainers.json")
+            if opcS == 1:
+                break  
     elif opc == 3:
         menu_salir()
         break  

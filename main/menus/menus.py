@@ -101,15 +101,13 @@ def menu_mostrar_trainers(archivo2):
     return opcS
 
 
-def menu_train():
-    print("Bienvenido Trainer")
+def menu_train(archivo2):
+    print("Selección de trainer")
     print("")
-    print("1. ")
-    print("2. ")
-    print("3. ")
-    opc=verif_opc("----> ",1,3)
-    return opc
-   
+    print("1. Ver trainers")
+    opct=verif_opct("---->",1,1)
+    return opct
+    
 def menu_salir():
     print("Bye bye /____|")   
 

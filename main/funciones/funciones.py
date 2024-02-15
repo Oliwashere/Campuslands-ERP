@@ -16,6 +16,17 @@ def verif_opc(enunciado,bajo,top):
         except ValueError:
             print("Por favor, ingrese una opción válida")
             
+def verif_opct(enunciado,bajo,top):
+    while True:
+        try: 
+            opcion=int(input(enunciado))
+            if opcion >=bajo and opcion<=top:
+                return opcion
+            else:
+                print(f"La opcion no se encuetra entre las opciones ({bajo}-{top})")
+        except ValueError:
+            print("Por favor, ingrese una opción válida")
+
 def verif_opcSalir(enunciado,bajo,top):
     while True:
         try: 
@@ -269,6 +280,26 @@ def mostrar_rutas_entrenamiento(rutas):
     for key, value in rutas.items():
         print(f"{key}: {value['nombre']}")
         
+def consultar_campers_en_riesgo(archivo):
+    clear_screen()
+    datos = cargar_camper(archivo)
+
+    if not datos:
+        print("No hay campers registrados para consultar en riesgo.")
+        return
+
+    campers_en_riesgo = [camper for camper in datos if camper["estado"].lower() == "reprobado"]
+
+    if campers_en_riesgo:
+        print("Campers en riesgo:")
+        for camper in campers_en_riesgo:
+            print(f"Camper #{camper['camper #']}: {camper['nombre1']} {camper['apellido1']}")
+    else:
+        print("No hay campers en riesgo.")
+    print("1. Salir")
+    opcS=verif_opcSalir("----> ",1,1)
+    return opcS          
+
 def asignar_ruta_entrenamiento(rutas, trainers):
     while True:
         try:
